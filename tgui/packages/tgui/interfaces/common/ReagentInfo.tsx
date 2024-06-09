@@ -231,7 +231,8 @@ const containerCheck = (a: ReagentContainer | null, b: ReagentContainer| null): 
   if (a === null || b === null) return true; // only one object is null, update
   if (a.totalVolume !== b.totalVolume
       || a.finalColor !== b.finalColor
-      || a.maxVolume !== b.maxVolume) return true; // a property used by ReagentGraph/List has changed, update
+      || a.maxVolume !== b.maxVolume
+      || a.fake !== b.fake) return true; // a property used by ReagentGraph/List has changed, update
   if (a.contents?.length !== b.contents?.length) return true; // different number of reagents, update
   if (a.contents && b.contents) {
     for (let i = 0; i < a.contents.length; i++) {
